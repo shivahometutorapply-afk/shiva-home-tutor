@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shiva Home Tutor — Verified Home Tutors in Gurgaon & Noida</title>
+<link rel="icon" type="image/png" href="logo.png">
+<meta name="description" content="Find verified, experienced home tutors in Gurgaon, Noida, Delhi & Ghaziabad. Free demo class. WhatsApp us now.">
+<style>
+  :root{
+    --chalk-green: #1F3B2E;
+    --chalk-green-deep: #142A20;
+    --paper: #F6F1E4;
+    --paper-white: #FDFBF4;
+    --chalk-white: #F6F5EF;
+    --red-pen: #C1391F;
+    --marigold: #E3A23A;
+    --slate: #4B5A52;
+    --line: #C9BFA6;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Work Sans', 'Segoe UI', Arial, sans-serif;
+    --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    background:var(--paper);
+    color:var(--chalk-green-deep);
+    line-height:1.5;
+  }
+  img{max-width:100%;}
+  a{color:inherit;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+
+  /* Notebook rule divider */
+  .rule{
+    height:0;
+    border-top:2px dashed var(--line);
+    margin:0;
+  }
+
+  /* Header */
+  header{
+    background:var(--chalk-green);
+    color:var(--chalk-white);
+    position:sticky;
+    top:0;
+    z-index:50;
+    border-bottom:3px solid var(--marigold);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:14px 24px;
+    max-width:1120px;
+    margin:0 auto;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--font-display);
+    font-size:1.5rem;
+    font-weight:600;
+    letter-spacing:0.2px;
+  }
+  .brand .tick{color:var(--marigold);}
+  .logo-badge{
+    height:42px;
+    width:42px;
+    object-fit:cover;
+    border-radius:8px;
+    background:var(--chalk-white);
+    padding:2px;
+    display:block;
+  }
+  .brand-name{white-space:nowrap;}
+  nav.links{
+    display:flex;
+    gap:22px;
+    font-size:0.92rem;
+    font-family:var(--font-mono);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+  }
+  nav.links a{text-decoration:none;opacity:0.88;transition:opacity .2s;}
+  nav.links a:hover{opacity:1; text-decoration:underline;}
+  .nav-cta{display:flex; gap:10px; align-items:center;}
+  .menu-toggle{display:none;background:none;border:none;color:var(--chalk-white);font-size:1.6rem;cursor:pointer;}
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:11px 20px;
+    border-radius:6px;
+    font-weight:600;
+    font-size:0.95rem;
+    text-decoration:none;
+    border:2px solid transparent;
+    cursor:pointer;
+    font-family:var(--font-body);
+  }
+  .btn-whatsapp{background:#2FA84F;color:#fff;}
+  .btn-whatsapp:hover{background:#278f43;}
+  .btn-call{background:transparent;color:var(--chalk-white);border-color:var(--chalk-white);}
+  .btn-call:hover{background:rgba(255,255,255,0.12);}
+  .btn-red{background:var(--red-pen);color:#fff;}
+  .btn-red:hover{background:#a12f19;}
+  .btn-outline-dark{background:transparent;color:var(--chalk-green-deep);border-color:var(--chalk-green-deep);}
+  .btn-outline-dark:hover{background:var(--chalk-green-deep);color:var(--chalk-white);}
+  .btn-block{width:100%;justify-content:center;}
+
+  /* Hero */
+  .hero{
+    background:var(--chalk-green);
+    color:var(--chalk-white);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:48px;
+    padding:64px 24px 84px;
+    align-items:center;
+  }
+  .hero-eyebrow{
+    font-family:var(--font-mono);
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    font-size:0.78rem;
+    color:var(--marigold);
+    margin-bottom:14px;
+  }
+  .hero h1{
+    font-family:var(--font-display);
+    font-size:clamp(2.1rem, 4vw, 3.2rem);
+    line-height:1.12;
+    margin:0 0 20px;
+    font-weight:600;
+  }
+  .hero h1 .underline{
+    position:relative;
+    white-space:nowrap;
+  }
+  .hero h1 .underline::after{
+    content:"";
+    position:absolute;
+    left:-2%;
+    right:-2%;
+    bottom:-6px;
+    height:10px;
+    background:none;
+    border-bottom:6px solid var(--red-pen);
+    border-radius:50%;
+    transform:rotate(-1deg);
+  }
+  .hero p.lead{
+    font-size:1.08rem;
+    color:#DCE6DD;
+    max-width:520px;
+    margin:0 0 30px;
+  }
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+
+  /* Report card stat panel */
+  .report-card{
+    background:var(--paper-white);
+    color:var(--chalk-green-deep);
+    border-radius:10px;
+    padding:26px;
+    box-shadow:0 18px 40px rgba(0,0,0,0.28);
+    transform:rotate(1.2deg);
+    border:1px solid var(--line);
+  }
+  .report-card .rc-title{
+    font-family:var(--font-mono);
+    text-transform:uppercase;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    color:var(--slate);
+    border-bottom:2px dashed var(--line);
+    padding-bottom:10px;
+    margin-bottom:14px;
+    display:flex;
+    justify-content:space-between;
+  }
+  .rc-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    padding:9px 0;
+    border-bottom:1px dotted var(--line);
+    font-size:0.95rem;
+  }
+  .rc-row:last-child{border-bottom:none;}
+  .rc-row .grade{
+    font-family:var(--font-mono);
+    font-weight:700;
+    color:var(--red-pen);
+    font-size:1.05rem;
+  }
+
+  /* Sections */
+  section{padding:64px 0;}
+  .section-head{max-width:640px; margin:0 0 40px;}
+  .eyebrow{
+    font-family:var(--font-mono);
+    text-transform:uppercase;
+    font-size:0.78rem;
+    letter-spacing:0.1em;
+    color:var(--red-pen);
+    margin-bottom:10px;
+  }
+  h2{
+    font-family:var(--font-display);
+    font-size:clamp(1.7rem,3vw,2.3rem);
+    margin:0 0 10px;
+    font-weight:600;
+  }
+  .section-head p{color:var(--slate); font-size:1.02rem; margin:0;}
+  .bg-alt{background:var(--paper-white);}
+  .bg-dark{background:var(--chalk-green); color:var(--chalk-white);}
+  .bg-dark .section-head p{color:#D7E2D8;}
+  .bg-dark .eyebrow{color:var(--marigold);}
+
+  /* Cards grid */
+  .grid{display:grid; gap:22px;}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .grid-4{grid-template-columns:repeat(4,1fr);}
+  .grid-6{grid-template-columns:repeat(6,1fr);}
+  .card{
+    background:var(--paper-white);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:24px;
+  }
+  .bg-dark .card{background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.18);}
+  .card .num{
+    font-family:var(--font-mono);
+    color:var(--red-pen);
+    font-size:0.85rem;
+    margin-bottom:8px;
+  }
+  .card h3{font-family:var(--font-display); margin:0 0 8px; font-size:1.2rem;}
+  .card p{color:var(--slate); margin:0; font-size:0.95rem;}
+  .bg-dark .card p{color:#CBD9CC;}
+
+  .why-grid{display:grid; grid-template-columns:repeat(5,1fr); gap:16px;}
+  .why-item{
+    text-align:center;
+    padding:20px 10px;
+  }
+  .why-item .grade-badge{
+    font-family:var(--font-mono);
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:52px;height:52px;
+    border-radius:50%;
+    border:2px solid var(--marigold);
+    color:var(--marigold);
+    font-weight:700;
+    margin-bottom:12px;
+    font-size:1rem;
+  }
+  .why-item p{font-size:0.92rem; color:#DCE6DD; margin:0;}
+
+  .chip-row{display:flex; flex-wrap:wrap; gap:12px;}
+  .chip{
+    font-family:var(--font-mono);
+    font-size:0.88rem;
+    padding:10px 16px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    background:var(--paper-white);
+  }
+
+  /* Testimonials */
+  .testimonial{
+    background:var(--paper-white);
+    border:1px solid var(--line);
+    border-radius:8px;
+    padding:22px;
+    position:relative;
+  }
+  .testimonial .quote-mark{
+    font-family:var(--font-display);
+    font-size:2.6rem;
+    color:var(--marigold);
+    line-height:0.5;
+    display:block;
+    margin-bottom:6px;
+  }
+  .testimonial p.text{margin:0 0 14px; color:var(--chalk-green-deep); font-size:0.96rem;}
+  .testimonial .author{
+    font-family:var(--font-mono);
+    font-size:0.8rem;
+    color:var(--slate);
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+  }
+
+  /* FAQ */
+  .faq-item{
+    border-bottom:2px dashed var(--line);
+    padding:18px 0;
+  }
+  .faq-item summary{
+    cursor:pointer;
+    font-family:var(--font-display);
+    font-size:1.08rem;
+    font-weight:600;
+    list-style:none;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .faq-item summary::after{
+    content:"+";
+    font-family:var(--font-mono);
+    color:var(--red-pen);
+    font-size:1.4rem;
+  }
+  .faq-item[open] summary::after{content:"–";}
+  .faq-item p{color:var(--slate); margin:10px 0 0; font-size:0.96rem;}
+
+  /* Forms */
+  .form-panel{
+    background:var(--paper-white);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:32px;
+  }
+  .form-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  label{
+    display:block;
+    font-family:var(--font-mono);
+    font-size:0.78rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--slate);
+    margin-bottom:6px;
+  }
+  input, select{
+    width:100%;
+    padding:11px 12px;
+    border:1.5px solid var(--line);
+    border-radius:6px;
+    font-family:var(--font-body);
+    font-size:0.95rem;
+    background:var(--paper);
+    color:var(--chalk-green-deep);
+  }
+  input:focus, select:focus{outline:3px solid var(--marigold); outline-offset:1px; border-color:var(--marigold);}
+  .field{margin-bottom:16px;}
+  .full{grid-column:1 / -1;}
+  .form-note{font-size:0.85rem; color:var(--slate); margin-top:14px;}
+  .success-msg{
+    display:none;
+    background:#E9F5EC;
+    border:1.5px solid #2FA84F;
+    border-radius:8px;
+    padding:18px;
+    margin-top:16px;
+    text-align:center;
+  }
+  .success-msg.show{display:block;}
+  .success-msg p{margin:0 0 12px; font-weight:600;}
+
+  /* Two column layout */
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;}
+
+  /* Footer */
+  footer{
+    background:var(--chalk-green-deep);
+    color:#CBD9CC;
+    padding:48px 0 24px;
+    font-size:0.92rem;
+  }
+  .footer-grid{display:grid; grid-template-columns:2fr 1fr 1fr; gap:32px; margin-bottom:32px;}
+  footer h4{
+    font-family:var(--font-mono);
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    font-size:0.8rem;
+    color:var(--marigold);
+    margin:0 0 14px;
+  }
+  footer a{text-decoration:none; opacity:0.85;}
+  footer a:hover{opacity:1; text-decoration:underline;}
+  footer .foot-links{display:flex; flex-direction:column; gap:8px;}
+  .foot-bottom{
+    border-top:1px solid rgba(255,255,255,0.12);
+    padding-top:18px;
+    text-align:center;
+    font-size:0.82rem;
+    color:#8FA091;
+  }
+
+  /* Sticky mobile bar */
+  .sticky-bar{
+    display:none;
+    position:fixed;
+    bottom:0; left:0; right:0;
+    background:var(--chalk-green-deep);
+    padding:10px 14px;
+    z-index:60;
+    box-shadow:0 -6px 18px rgba(0,0,0,0.25);
+    gap:10px;
+  }
+
+  /* Floating WhatsApp bubble */
+  .fab{
+    position:fixed;
+    bottom:24px;
+    right:24px;
+    width:58px;height:58px;
+    border-radius:50%;
+    background:#2FA84F;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 8px 20px rgba(0,0,0,0.3);
+    z-index:60;
+    text-decoration:none;
+  }
+  .fab svg{width:28px;height:28px;fill:#fff;}
+
+  @media (max-width: 860px){
+    nav.links{display:none;}
+    .menu-toggle{display:block;}
+    .nav-cta .btn-call span.txt{display:none;}
+    .hero .wrap{grid-template-columns:1fr; padding-bottom:56px;}
+    .report-card{transform:none; margin-top:20px;}
+    .grid-3, .grid-4{grid-template-columns:1fr 1fr;}
+    .grid-6{grid-template-columns:repeat(3,1fr);}
+    .why-grid{grid-template-columns:repeat(2,1fr);}
+    .form-grid{grid-template-columns:1fr;}
+    .two-col{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr; gap:24px;}
+    .sticky-bar{display:flex;}
+    body{padding-bottom:70px;}
+    .fab{bottom:80px;}
+  }
+  @media (max-width:480px){
+    .grid-3, .grid-4{grid-template-columns:1fr;}
+    .grid-6{grid-template-columns:repeat(2,1fr);}
+    .why-grid{grid-template-columns:1fr 1fr;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand"><img class="logo-badge" src="logo.png" alt="Shiva Home Tutor logo"><span class="brand-name">Shiva Home Tutor</span></div>
+    <nav class="links">
+      <a href="#home">Home</a>
+      <a href="#services">Home Tutors</a>
+      <a href="#services">Online Tuition</a>
+      <a href="#become-tutor">Become a Tutor</a>
+      <a href="#faq">About / FAQ</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-call" href="tel:+918766379988"><span class="txt">📞 8766379988</span></a>
+      <a class="btn btn-whatsapp" href="https://wa.me/918766379988?text=Hi%2C%20I%20am%20looking%20for%20a%20home%20tutor." target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <div>
+      <div class="hero-eyebrow">Gurgaon · Noida · Delhi NCR</div>
+      <h1>Find the <span class="underline">Best Home Tutor</span> in Gurgaon &amp; Noida</h1>
+      <p class="lead">Verified &amp; experienced tutors for every class — Nursery to JEE/NEET. Tell us what you need and we'll match a tutor within 24 hours.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-whatsapp" href="https://wa.me/918766379988?text=Hi%2C%20I%20am%20looking%20for%20a%20home%20tutor." target="_blank" rel="noopener">
+          WhatsApp Now
+        </a>
+        <a class="btn btn-call" href="tel:+918766379988">📞 Call Now — 8766379988</a>
+      </div>
+    </div>
+    <div class="report-card">
+      <div class="rc-title"><span>Progress Report</span><span>Shiva Home Tutor</span></div>
+      <div class="rc-row"><span>Verified Tutors</span><span class="grade">500+</span></div>
+      <div class="rc-row"><span>Demo Class</span><span class="grade">Free</span></div>
+      <div class="rc-row"><span>Tutor Matching</span><span class="grade">&lt; 24 hrs</span></div>
+      <div class="rc-row"><span>Fees</span><span class="grade">Affordable</span></div>
+      <div class="rc-row"><span>Background Check</span><span class="grade">✓ Passed</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What we offer</div>
+      <h2>Services</h2>
+      <p>Pick the format that suits your child — we'll find the right tutor for it.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><div class="num">01</div><h3>Home Tuition</h3><p>A tutor comes to your home at a time that works for your family.</p></div>
+      <div class="card"><div class="num">02</div><h3>Online Tuition</h3><p>Live one-to-one classes over video call, from anywhere.</p></div>
+      <div class="card"><div class="num">03</div><h3>One-to-One Tuition</h3><p>Personal attention with a pace matched to your child.</p></div>
+      <div class="card"><div class="num">04</div><h3>Board Exam Preparation</h3><p>Focused revision and practice for CBSE / ICSE / State boards.</p></div>
+      <div class="card"><div class="num">05</div><h3>IIT-JEE / NEET Coaching</h3><p>Subject-expert tutors for competitive exam preparation.</p></div>
+      <div class="card"><div class="num">06</div><h3>Free Demo Class</h3><p>Try a class with your matched tutor before you commit.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="bg-dark">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Why parents choose us</div>
+      <h2>Why Choose Shiva Home Tutor</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-item"><div class="grade-badge">500+</div><p>Verified Tutors</p></div>
+      <div class="why-item"><div class="grade-badge">Free</div><p>Demo Class</p></div>
+      <div class="why-item"><div class="grade-badge">₹</div><p>Affordable Fees</p></div>
+      <div class="why-item"><div class="grade-badge">✓</div><p>Background Verified</p></div>
+      <div class="why-item"><div class="grade-badge">24h</div><p>Quick Matching</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLASSES -->
+<section class="bg-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Coverage</div>
+      <h2>Classes We Cover</h2>
+    </div>
+    <div class="grid grid-6">
+      <div class="chip" style="text-align:center;">Nursery–UKG</div>
+      <div class="chip" style="text-align:center;">Class 1–5</div>
+      <div class="chip" style="text-align:center;">Class 6–8</div>
+      <div class="chip" style="text-align:center;">Class 9–10</div>
+      <div class="chip" style="text-align:center;">Class 11–12</div>
+      <div class="chip" style="text-align:center;">JEE / NEET</div>
+    </div>
+  </div>
+</section>
+
+<!-- AREAS -->
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Where we work</div>
+      <h2>Areas We Serve</h2>
+    </div>
+    <div class="chip-row">
+      <span class="chip">Gurgaon</span>
+      <span class="chip">Noida</span>
+      <span class="chip">Greater Noida</span>
+      <span class="chip">Delhi</span>
+      <span class="chip">Ghaziabad</span>
+      <span class="chip">Faridabad</span>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="bg-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What parents say</div>
+      <h2>Reviews</h2>
+    </div>
+    <div class="grid grid-3">
+      <div class="testimonial"><span class="quote-mark">“</span><p class="text">Found a Maths tutor for my son within a day. The demo class made it easy to decide.</p><div class="author">Parent — Sector 54, Gurgaon</div></div>
+      <div class="testimonial"><span class="quote-mark">“</span><p class="text">The tutor was patient with my daughter and her marks improved within two months.</p><div class="author">Parent — Sector 62, Noida</div></div>
+      <div class="testimonial"><span class="quote-mark">“</span><p class="text">Fees were reasonable and the tutor came fully verified. Very smooth process.</p><div class="author">Parent — Indirapuram, Ghaziabad</div></div>
+      <div class="testimonial"><span class="quote-mark">“</span><p class="text">We switched tutors once and the team helped us find a better fit quickly.</p><div class="author">Parent — DLF Phase 3, Gurgaon</div></div>
+      <div class="testimonial"><span class="quote-mark">“</span><p class="text">Online classes for JEE prep were well structured and consistent.</p><div class="author">Parent — Greater Noida</div></div>
+      <div class="testimonial"><span class="quote-mark">“</span><p class="text">Quick response on WhatsApp, tutor visited within two days of enquiry.</p><div class="author">Parent — Vasant Kunj, Delhi</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Common questions</div>
+      <h2>FAQ</h2>
+    </div>
+    <details class="faq-item" open>
+      <summary>Is the demo class free?</summary>
+      <p>Yes. Every family gets a free demo class with the matched tutor before deciding to continue.</p>
+    </details>
+    <details class="faq-item">
+      <summary>How soon will I get a tutor?</summary>
+      <p>In most areas we match a suitable tutor within 24 hours of your enquiry.</p>
+    </details>
+    <details class="faq-item">
+      <summary>Can I change the tutor?</summary>
+      <p>Yes. If the tutor isn't the right fit, tell us and we'll arrange a replacement at no extra cost.</p>
+    </details>
+    <details class="faq-item">
+      <summary>What are your charges?</summary>
+      <p>Fees depend on class, subject, and mode (home or online). Message us on WhatsApp for an exact quote.</p>
+    </details>
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- ENQUIRY + TUTOR REGISTRATION -->
+<section id="contact" class="bg-alt">
+  <div class="wrap two-col">
+
+    <!-- Parent Enquiry -->
+    <div class="form-panel">
+      <div class="eyebrow">For parents</div>
+      <h2 style="margin-bottom:6px;">Get a Tutor</h2>
+      <p style="color:var(--slate); margin:0 0 22px; font-size:0.95rem;">Share a few details and we'll reach out — or message us directly on WhatsApp.</p>
+      <form id="enquiryForm">
+        <div class="form-grid">
+          <div class="field"><label for="p-name">Parent Name</label><input id="p-name" required></div>
+          <div class="field"><label for="p-mobile">Mobile Number</label><input id="p-mobile" type="tel" required></div>
+          <div class="field"><label for="p-class">Class</label><input id="p-class" required placeholder="e.g. Class 9"></div>
+          <div class="field"><label for="p-subject">Subject</label><input id="p-subject" required placeholder="e.g. Maths, Science"></div>
+          <div class="field"><label for="p-area">Area</label><input id="p-area" required placeholder="e.g. Sector 54, Gurgaon"></div>
+          <div class="field"><label for="p-time">Preferred Timing</label><input id="p-time" placeholder="e.g. Evenings, 5–7 PM"></div>
+        </div>
+        <button type="submit" class="btn btn-red btn-block">Submit Enquiry</button>
+        <p class="form-note">Prefer to email? Write to <a href="mailto:shivahometutor.apply@gmail.com" style="color:var(--red-pen); font-weight:600;">shivahometutor.apply@gmail.com</a></p>
+      </form>
+      <div class="success-msg" id="enquirySuccess">
+        <p>Thank you! For faster service, message us on WhatsApp.</p>
+        <a class="btn btn-whatsapp" id="enquiryWa" href="#" target="_blank" rel="noopener">Message on WhatsApp</a>
+      </div>
+    </div>
+
+    <!-- Direct contact -->
+    <div>
+      <div class="eyebrow">Reach us directly</div>
+      <h2 style="margin-bottom:16px;">Contact</h2>
+      <div class="card" style="margin-bottom:16px;">
+        <h3 style="margin-bottom:14px;">Talk to us now</h3>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a class="btn btn-whatsapp btn-block" href="https://wa.me/918766379988?text=Hi%2C%20I%20am%20looking%20for%20a%20home%20tutor." target="_blank" rel="noopener">WhatsApp — 8766379988</a>
+          <a class="btn btn-outline-dark btn-block" href="tel:+918766379988">📞 Call — 8766379988</a>
+          <a class="btn btn-outline-dark btn-block" href="mailto:shivahometutor.apply@gmail.com">✉️ shivahometutor.apply@gmail.com</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:10px;">Areas served</h3>
+        <p style="color:var(--slate); font-size:0.95rem;">Gurgaon · Noida · Greater Noida · Delhi · Ghaziabad · Faridabad</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="rule"></div>
+
+<!-- BECOME A TUTOR -->
+<section id="become-tutor">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">For tutors</div>
+      <h2>Become a Tutor</h2>
+      <p>Join our verified tutor network. Share your details below and email your resume &amp; photo — we'll get in touch.</p>
+    </div>
+    <div class="form-panel">
+      <form id="tutorForm">
+        <div class="form-grid">
+          <div class="field"><label for="t-name">Name</label><input id="t-name" required></div>
+          <div class="field"><label for="t-mobile">Mobile Number</label><input id="t-mobile" type="tel" required></div>
+          <div class="field"><label for="t-qual">Qualification</label><input id="t-qual" required></div>
+          <div class="field"><label for="t-exp">Experience</label><input id="t-exp" placeholder="e.g. 3 years"></div>
+          <div class="field"><label for="t-subjects">Subjects</label><input id="t-subjects" required placeholder="e.g. Maths, Physics"></div>
+          <div class="field"><label for="t-classes">Classes</label><input id="t-classes" required placeholder="e.g. 9–12"></div>
+          <div class="field"><label for="t-area">Preferred Area</label><input id="t-area" required></div>
+          <div class="field">
+            <label for="t-mode">Mode</label>
+            <select id="t-mode">
+              <option>Home</option>
+              <option>Online</option>
+              <option>Both</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-red btn-block">Submit Details</button>
+        <p class="form-note">After submitting, please email your <strong>resume and photo</strong> to <a href="mailto:shivahometutor.apply@gmail.com" style="color:var(--red-pen); font-weight:600;">shivahometutor.apply@gmail.com</a> — we'll open your mail app with the subject pre-filled.</p>
+      </form>
+      <div class="success-msg" id="tutorSuccess">
+        <p>Thanks! One more step — send your resume &amp; photo by email or WhatsApp.</p>
+        <div style="display:flex; gap:10px; justify-content:center; flex-wrap:wrap;">
+          <a class="btn btn-whatsapp" id="tutorWa" href="#" target="_blank" rel="noopener">Send on WhatsApp</a>
+          <a class="btn btn-outline-dark" id="tutorEmail" href="#">Email Resume</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEO LOCATION LINKS -->
+<section class="bg-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Popular searches</div>
+      <h2>Home Tutors Near You</h2>
+    </div>
+    <div class="chip-row">
+      <span class="chip">Home Tutor in Gurgaon</span>
+      <span class="chip">Home Tutor in Noida</span>
+      <span class="chip">Home Tutor in Sector 54 Gurgaon</span>
+      <span class="chip">Maths Home Tutor Gurgaon</span>
+      <span class="chip">Science Home Tutor Gurgaon</span>
+      <span class="chip">Female Home Tutor Gurgaon</span>
+      <span class="chip">Home Tuition Near Me</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="color:var(--chalk-white); margin-bottom:12px;"><img class="logo-badge" src="logo.png" alt="Shiva Home Tutor logo"><span class="brand-name">Shiva Home Tutor</span></div>
+        <p style="max-width:320px; color:#B7C6B9;">Verified, experienced home tutors for all classes across Gurgaon, Noida, Delhi, Ghaziabad &amp; Faridabad. Free demo class before you decide.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <div class="foot-links">
+          <a href="#home">Home</a>
+          <a href="#services">Home Tutors</a>
+          <a href="#services">Online Tuition</a>
+          <a href="#become-tutor">Become a Tutor</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <div class="foot-links">
+          <a href="tel:+918766379988">📞 8766379988</a>
+          <a href="mailto:shivahometutor.apply@gmail.com">✉️ shivahometutor.apply@gmail.com</a>
+          <a href="https://wa.me/918766379988" target="_blank" rel="noopener">💬 WhatsApp Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">© 2026 Shiva Home Tutor. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a class="fab" href="https://wa.me/918766379988?text=Hi%2C%20I%20am%20looking%20for%20a%20home%20tutor." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.1 1.6 5.8L0 24l6.4-1.7A12 12 0 0 0 12 24c6.6 0 12-5.4 12-12 0-3.2-1.3-6.2-3.5-8.5zM12 22a9.9 9.9 0 0 1-5.1-1.4l-.4-.2-3.8 1 1-3.7-.2-.4A10 10 0 1 1 12 22zm5.5-7.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-1.7-.7-2.8-1.7-3.6-3-.2-.3 0-.5.2-.7.2-.2.5-.5.7-.8.2-.2.2-.4.1-.7-.1-.3-.9-2.2-1.2-2.9-.3-.6-.6-.5-.8-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.6 0 1.5 1.1 3 1.3 3.2.2.2 2 3.1 5 4.3 2.5 1 3 .8 3.5.7.5-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4 0-.1-.2-.2-.4-.3z"/></svg>
+</a>
+
+<!-- Sticky mobile bar -->
+<div class="sticky-bar">
+  <a class="btn btn-whatsapp btn-block" href="https://wa.me/918766379988?text=Hi%2C%20I%20am%20looking%20for%20a%20home%20tutor." target="_blank" rel="noopener">WhatsApp</a>
+  <a class="btn btn-call btn-block" style="border-color:#fff;" href="tel:+918766379988">📞 Call</a>
+</div>
+
+<script>
+  // ⚠️ STEP REQUIRED: after deploying the Google Apps Script (see setup guide),
+  // paste your Web App URL below between the quotes.
+  const SHEET_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxTSSd7MRnkqpbnH31WJJuBIxlFf-EqcJFOOfIq4zLHVynwDS7LStrDbj3wyCtWsZ9Hng/exec";
+
+  function sendToSheet(payload){
+    if (!SHEET_SCRIPT_URL || SHEET_SCRIPT_URL.indexOf("PASTE_YOUR") === 0){
+      console.warn("Google Sheet URL not set yet — skipping sheet save.");
+      return Promise.resolve();
+    }
+    return fetch(SHEET_SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    }).catch(function(err){ console.error("Sheet save failed:", err); });
+  }
+
+  const enquiryForm = document.getElementById('enquiryForm');
+  enquiryForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('p-name').value;
+    const mobile = document.getElementById('p-mobile').value;
+    const cls = document.getElementById('p-class').value;
+    const subject = document.getElementById('p-subject').value;
+    const area = document.getElementById('p-area').value;
+    const time = document.getElementById('p-time').value;
+    const msg = `Hi, I need a tutor.\nName: ${name}\nMobile: ${mobile}\nClass: ${cls}\nSubject: ${subject}\nArea: ${area}\nPreferred timing: ${time}`;
+
+    sendToSheet({
+      formType: "parent",
+      name: name, mobile: mobile, class: cls, subject: subject, area: area, timing: time
+    });
+
+    document.getElementById('enquiryWa').href = 'https://wa.me/918766379988?text=' + encodeURIComponent(msg);
+    document.getElementById('enquirySuccess').classList.add('show');
+    enquiryForm.style.display = 'none';
+  });
+
+  const tutorForm = document.getElementById('tutorForm');
+  tutorForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = document.getElementById('t-name').value;
+    const mobile = document.getElementById('t-mobile').value;
+    const qual = document.getElementById('t-qual').value;
+    const exp = document.getElementById('t-exp').value;
+    const subjects = document.getElementById('t-subjects').value;
+    const classes = document.getElementById('t-classes').value;
+    const area = document.getElementById('t-area').value;
+    const mode = document.getElementById('t-mode').value;
+    const msg = `Hi, I want to register as a tutor.\nName: ${name}\nMobile: ${mobile}\nQualification: ${qual}\nExperience: ${exp}\nSubjects: ${subjects}\nClasses: ${classes}\nPreferred Area: ${area}\nMode: ${mode}`;
+
+    sendToSheet({
+      formType: "tutor",
+      name: name, mobile: mobile, qualification: qual, experience: exp,
+      subjects: subjects, classes: classes, area: area, mode: mode
+    });
+
+    document.getElementById('tutorWa').href = 'https://wa.me/918766379988?text=' + encodeURIComponent(msg);
+    document.getElementById('tutorEmail').href = 'mailto:shivahometutor.apply@gmail.com?subject=' + encodeURIComponent('Tutor Registration - ' + name) + '&body=' + encodeURIComponent(msg + '\n\n(Please attach your resume and photo to this email)');
+    document.getElementById('tutorSuccess').classList.add('show');
+    tutorForm.style.display = 'none';
+  });
+</script>
+
+</body>
+</html>
