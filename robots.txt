@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://shivahometutorapply-afk.github.io/shiva-home-tutor/sitemap.xml

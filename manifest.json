@@ -1,0 +1,16 @@
+{
+  "name": "Shiva Home Tutor",
+  "short_name": "Shiva Tutor",
+  "description": "Verified home tutors in Gurgaon, Noida, Delhi, Ghaziabad & Faridabad.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#F6F1E4",
+  "theme_color": "#1F3B2E",
+  "icons": [
+    {
+      "src": "logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
